@@ -57,7 +57,7 @@
 
       <div class="starter-template">
         <h1>Scodoc</h1>
-        <p class="lead">Connectez-vous à l'application Scodoc avec votre numéro d'étudiant.</p>
+        <p class="lead">Connectez-vous à l'application Scodoc avec votre numéro d'étudiant</p>
       </div>
     </div><!-- /.container -->
 	
