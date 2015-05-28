@@ -44,7 +44,7 @@
 
       else
       {
-        include("stud_int.php");
+        header("Location: bulletin.php");
       }
   }
 
