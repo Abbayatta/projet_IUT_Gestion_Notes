@@ -1,10 +1,10 @@
-
+<?php session_start(); include("pdo.php"); include("get_groups_list.php"); ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modification utilisateur</title>
+    <title>Modification</title>
 
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
@@ -30,148 +30,110 @@
 <body>
 
     <div id="wrapper">
-        <?php include("nav.php"); ?>
+        <?php include("nav.php"); include ("get_profil.php")?>
 	
 		<div>
 			<div class="row text-center">
-				<h2>Nouvel utilisateur</h2>
+				<h2>Modification</h2>
+				
+				<!--fonction php à faire pour modifier l'utilisateur-->
+				<?php
+
+					if (isset($_POST["login"])) 
+					{
+
+						$req = $pdo->prepare('INSERT INTO users(name, login, phone, passwd, mail, group_id, rank) VALUES(:name, :login, :phone, :passwd, :mail, :group_id, :rank)');
+						$req->execute(array(
+						'name' => $_POST["name"],
+						'login' => $_POST["login"],
+						'phone' => $_POST["phone"],
+						'passwd' => md5($_POST["passwd"]),
+						'mail' => $_POST["email"],
+						'group_id' => $_POST["group"],
+						'rank' => $_POST["rank"]
+						));
+						
+						echo "<div class='alert alert-success' role='alert' align='center'>Le nouvel utilisateur a bien été ajouté !</div>";
+						
+					}
+
+					else
+					{
+					}
+				?>
 			</div>
-			<form class="form-signin">
+			<form class="form-signin" method="post" action="">
 			<div>
-				<label for="id_utilisateur" class="col-md-2">
-					ID:
+				<label for="login" class="col-md-2">
+					Login :
 				</label>
 				<div class="col-md-9">
-					<input type="text" class="form-control" id="id_utilisateur" placeholder="Entrer votre ID" required autofocus>
-				</div>
-				<div class="col-md-1">
-					<i class="fa fa-lock fa-2x"></i>
-				</div>
-			</div> 
-			<div>
-				<label for="firstname" class="col-md-2">
-					Nom:
-				</label>
-				<div class="col-md-9">
-					<input type="text" class="form-control" id="firstname" placeholder="Entrer votre nom" required>
+					<input type="text" class="form-control" id="login" name="login" value=<?php echo (get_profil_element($_SESSION["id"], "login"))?> required>
 				</div>
 				<div class="col-md-1">
 					<i class="fa fa-lock fa-2x"></i>
 				</div>
 			</div>        
 			<div>
-				<label for="lastname" class="col-md-2">
-					Prénom:
+				<label for="name" class="col-md-2">
+					Prénom NOM :
 				</label>
 				<div class="col-md-9">
-					<input type="text" class="form-control" id="lastname" placeholder="Entrer votre prenom" required>
+					<input type="text" class="form-control" id="name" name="name" value=<?php echo (get_profil_element($_SESSION["id"], "name"))?> required>
 				</div>
 				 <div class="col-md-1">
 					<i class="fa fa-lock fa-2x"></i>
 				</div>
 			</div>
 			<div>
-				<label for="datedenaissance" class="col-md-2">
-					Date de naissance:
-				</label>
-				<div class='col-md-9'>
-					 <div class='input-group date' id='datetimepicker'>
-						<input id="date" type='text' class="form-control" placeholder="01/12/2000" required/>
-						<span class="input-group-addon">
-							<span class="glyphicon glyphicon-calendar"> </span>
-						</span>
-					</div>
-				</div>
-				<div class="col-md-1">
-					<i class="fa fa-lock fa-2x"></i>
-				</div>
-			</div> 
-			<div>
-				<label for="emailaddress" class="col-md-2">
-					Adresse mail:
+				<label for="email" class="col-md-2">
+					Adresse mail :
 				</label>
 				<div class="col-md-9">
-					<input type="email" class="form-control" id="emailaddress" placeholder="Entrer votre adresse mail" required>
-					<p class="help-block">
-						Exemple: votrenom@domaine.com
-					</p>
+					<input type="email" class="form-control" id="email" name="email" value=<?php echo (get_profil_element($_SESSION["id"], "mail"))?> required>
 				</div>
 				 <div class="col-md-1">
 					<i class="fa fa-lock fa-2x"></i>
 				</div>
 			</div>
 			<div>
-				<label for="numberphone" class="col-md-2">
-					Téléphone:
+				<label for="phone" class="col-md-2">
+					Téléphone :
 				</label>
 				<div class="col-md-9">
-					<input type="text" class="form-control" id="numberphone" placeholder="0123456789">
+					<input type="text" class="form-control" id="phone" name="phone" value=<?php echo (get_profil_element($_SESSION["id"], "phone"))?>>
 				</div>
 			</div>
 			<div>
-				<label for="password" class="col-md-2">
-					Mot de passe:
+				<label for="passwd" class="col-md-2">
+					Mot de passe :
 				</label>
 				<div class="col-md-9">
-					<input type="password" class="form-control" id="password" placeholder="Entrer votre mot de passe" required>
-					<p class="help-block">
-						Min: 6 caractères
-					</p>
+					<input type="password" class="form-control" id="passwd" name="passwd" value="" required> <!--fonction php à faire-->
 				</div>
 				 <div class="col-md-1">
 					<i class="fa fa-lock fa-2x"></i>
 				</div>
 			</div>
 			<div>
-				<label for="sex" class="col-md-2">
-					Sexe:
-				</label>
-				<div class="col-md-10">
-					<label class="radio">
-						<input type="radio" name="sex" id="sex" value="male" checked>
-						Homme
-					</label>
-					<label class="radio">
-						<input type="radio" name="sex" id="Radio1" value="female">
-						Femme
-					</label>
-					<label class="radio">
-						<input type="radio" name="sex" id="Radio2" value="Autre">
-						Autre
-					</label>
-				</div>             
-			</div>
-			<div>
-				<label for="Fonction" class="col-md-2">
+				<label for="fonction" class="col-md-2">
 					Fonction:
 				</label>
-				<div class="col-md-10">
-					<label class="radio">
-						<input type="radio" name="fonction" id="fonction" value="eleve" checked>
-						Elève
-					</label>
-					<label class="radio">
-						<input type="radio" name="fonction" id="Radio1" value="professeur">
-						Professeur
-					</label>
-					<label class="radio">
-						<input type="radio" name="fonction" id="Radio2" value="administrateur">
-						Administrateur
-					</label>
-				</div>             
+				<div class="col-md-9">
+					<select id="rank" name="rank" class="form-control"> <!--fonction php à faire-->
+						<option value="0">Elève</option>
+						<option value="1">Professeur</option>
+						<option value="2">Administrateur</option>
+					</select>
+				</div>          
 			</div>
 			<div>
-				<label for="country" class="col-md-2">
-					Classe:
+				<label for="group" class="col-md-2">
+					Groupe :
 				</label>
 				<div class="col-md-9">
-					<select name="classe" id="classe" class="form-control">
-						<option>--Selectionner--</option>
-						<option>Info2-FA</option>
-						<option>Info2-FI-A</option>
-						<option>CInfo2-FI-B</option>
-						<option>Info1-A</option>
-						<option>Autres</option>
+					<select name="group" id="group" class="form-control"> <!--fonction php à faire-->
+						<?php get_groups_list(); ?>
 					</select>
 				</div>
 				<div class="col-md-1">
@@ -179,31 +141,20 @@
 				</div>
 			</div>
 			<div>
-				<label for="uploadimage" class="col-md-2">
-					Uploader une image de profil:
+				<label for="image" class="col-md-2">
+					Image de profil:
 				</label>
 				<div class="col-md-10">
-					<input type="file" name="uploadimage" id="uploadimage">
+					<input type="file" name="image" id="image">
 					<p class="help-block">
 						Formats autorisés: jpeg, jpg, gif, png
 					</p>
 				</div>          
 			</div>
-			<div>
-				<div class="col-md-2">
-				</div>
-				<div class="col-md-10">
-					<label>
-						<input type="checkbox"> J'accepte les termes et les conditions d'utilisation de ce site.</label>
-				</div>            
-			</div>
 			<div class="row">
 				<div class="col-md-2">
 				</div>
 				<div class="col-md-10">
-					<button type="cancel" class="btn btn-info">
-						Annuler
-					</button>
 					<button type="submit" class="btn btn-info">
 						Enregistrer
 					</button>
@@ -212,10 +163,18 @@
 			</form>
 		</div>
     </div>
-	<script>
+	<!--<script>
 		$(function (){
 		   $('#date').datepicker();
 		});
+	</script>-->
+	<script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
+	<!-- polyfiller file to detect and load polyfills -->
+	<script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
+	<script>
+	  webshims.setOptions('waitReady', false);
+	  webshims.setOptions('forms-ext', {types: 'date'});
+	  webshims.polyfill('forms forms-ext');
 	</script>
 </body>
 </html>

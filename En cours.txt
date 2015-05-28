@@ -1,1 +1,3 @@
 Création de nouveaux fichiers (profil, options...)
+
+A la fin de toutes les modifications il faut penser à remettre le mot de passe 'a1tern@n6e$' dans le fichier pdo.php

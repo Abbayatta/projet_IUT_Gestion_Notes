@@ -67,7 +67,7 @@
 					Login :
 				</label>
 				<div class="col-md-9">
-					<input type="text" class="form-control" id="login" name="login" placeholder="Entrer un login (ex : numéro d'étudiant)" required>
+					<input type="text" class="form-control" id="login" name="login" placeholder="Exemple : numéro d'étudiant (21534154)" required>
 				</div>
 				<div class="col-md-1">
 					<i class="fa fa-lock fa-2x"></i>
@@ -78,37 +78,18 @@
 					Prénom NOM :
 				</label>
 				<div class="col-md-9">
-					<input type="text" class="form-control" id="name" name="name" placeholder="Ex : Jean DUPONT" required>
+					<input type="text" class="form-control" id="name" name="name" placeholder="Exemple : Jean DUPONT" required>
 				</div>
 				 <div class="col-md-1">
 					<i class="fa fa-lock fa-2x"></i>
 				</div>
 			</div>
 			<div>
-				<label for="date" class="col-md-2">
-					Date de naissance :
-				</label>
-				<div class='col-md-9'>
-					 <div class='input-group date' id='datetimepicker'>
-						<input id="date" name="date" type='date' class="form-control" placeholder="01/12/2000" required/>
-						<span class="input-group-addon">
-							<span class="glyphicon glyphicon-calendar"> </span>
-						</span>
-					</div>
-				</div>
-				<div class="col-md-1">
-					<i class="fa fa-lock fa-2x"></i>
-				</div>
-			</div> 
-			<div>
 				<label for="email" class="col-md-2">
 					Adresse mail :
 				</label>
 				<div class="col-md-9">
-					<input type="email" class="form-control" id="email" name="email" placeholder="Entrer une adresse mail" required>
-					<p class="help-block">
-						Exemple: votrenom@uvsq.fr
-					</p>
+					<input type="email" class="form-control" id="email" name="email" placeholder="Exemple: votrenom@uvsq.fr" required>
 				</div>
 				 <div class="col-md-1">
 					<i class="fa fa-lock fa-2x"></i>
@@ -119,7 +100,7 @@
 					Téléphone :
 				</label>
 				<div class="col-md-9">
-					<input type="text" class="form-control" id="phone" name="phone" placeholder="0123456789">
+					<input type="text" class="form-control" id="phone" name="phone" placeholder="Exemple : 0123456789">
 				</div>
 			</div>
 			<div>
@@ -127,7 +108,7 @@
 					Mot de passe :
 				</label>
 				<div class="col-md-9">
-					<input type="password" class="form-control" id="passwd" name="passwd" placeholder="Entrer un mot de passe" required>
+					<input type="password" class="form-control" id="passwd" name="passwd" placeholder="Exemple : M0td3P@Ss3" required>
 				</div>
 				 <div class="col-md-1">
 					<i class="fa fa-lock fa-2x"></i>
@@ -160,7 +141,7 @@
 			</div>
 			<div>
 				<label for="image" class="col-md-2">
-					Uploader une image de profil:
+					Image de profil:
 				</label>
 				<div class="col-md-10">
 					<input type="file" name="image" id="image">
@@ -173,9 +154,6 @@
 				<div class="col-md-2">
 				</div>
 				<div class="col-md-10">
-					<button type="cancel" class="btn btn-info">
-						Annuler
-					</button>
 					<button type="submit" class="btn btn-info">
 						Enregistrer
 					</button>
