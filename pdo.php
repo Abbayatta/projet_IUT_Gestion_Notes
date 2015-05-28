@@ -2,7 +2,7 @@
 // Connection au serveur
 $pilote = 'mysql:host=localhost;dbname=scodoc';
 $utilisateur = 'root';
-$motDePasse = 'a1tern@n6e$';
+$motDePasse = '';
 
 try
 {

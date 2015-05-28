@@ -1,5 +1,8 @@
 <?php
 
+// Il faut compter les messages de l'utilisateur connecté
+// Modifier le '2' et mettre la variable contenant le nombre de message puis afficher les messages avec une fonction PHP à la place de 'annonce 1' et 'annonce 2'
+
 if ($_SESSION["rank"]==2) 
 {
 
@@ -26,19 +29,20 @@ echo '<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                  <ul class="nav navbar-nav navbar-right navbar-user">
                     <li class="dropdown messages-dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> Messages <span class="badge">2</span> <b class="caret"></b></a>
+						
                         <ul class="dropdown-menu">
-                            <li class="dropdown-header">? Nouveau(x) message(s)</li>
+                            <li class="dropdown-header">2 Nouveau(x) message(s)</li>
                             <li class="message-preview">
                                 <a href="#">
                                     <span class="avatar"><i class="fa fa-bell"></i></span>
-                                    <span class="message">Annonce</span>
+                                    <span class="message">Annonce 1</span>
                                 </a>
                             </li>
                             <li class="divider"></li>
                             <li class="message-preview">
                                 <a href="#">
                                     <span class="avatar"><i class="fa fa-bell"></i></span>
-                                    <span class="message">Annonce</span>
+                                    <span class="message">Annonce 2</span>
                                 </a>
                             </li>
                             <li class="divider"></li>
@@ -48,8 +52,8 @@ echo '<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                      <li class="dropdown user-dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> '.$_SESSION["name"].'<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#"><i class="fa fa-user"></i> Profil</a></li>
-                            <li><a href="#"><i class="fa fa-gear"></i> Options</a></li>
+                            <li><a href="profil.php"><i class="fa fa-user"></i> Profil</a></li>
+                            <li><a href="options.php"><i class="fa fa-gear"></i> Options</a></li>
                             <li class="divider"></li>
                             <li><a href="logoff.php"><i class="fa fa-power-off"></i> Déconnexion</a></li>
                         </ul>
@@ -103,8 +107,8 @@ else if($_SESSION["rank"]==1)
                      <li class="dropdown user-dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> '.$_SESSION["name"].'<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#"><i class="fa fa-user"></i> Profil</a></li>
-                            <li><a href="#"><i class="fa fa-gear"></i> Options</a></li>
+                            <li><a href="profil.php"><i class="fa fa-user"></i> Profil</a></li>
+                            <li><a href="options.php"><i class="fa fa-gear"></i> Options</a></li>
                             <li class="divider"></li>
                             <li><a href="logoff.php"><i class="fa fa-power-off"></i> Déconnexion</a></li>
                         </ul>
