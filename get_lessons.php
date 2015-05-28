@@ -3,8 +3,8 @@
 	function get_all_lessons()
 	{
 		include("pdo.php");
-		include("get_user.php");
-		include("get_group.php");
+		include("get_users.php");
+		include("get_groups.php");
 		$req=$pdo->query('SELECT * FROM lessons');
 
 		while ($data=$req->fetch()) 
@@ -17,5 +17,15 @@
 			echo '</tr>';
 		}
 	}
+	
+	function get_lessons_list()
+	{
+		include("pdo.php");
+		$req=$pdo->query('SELECT id,lesson_name FROM lessons');
 
+		while ($data=$req->fetch()) 
+			{
+				echo '<option value="'.$data["id"].'">'.$data["lesson_name"].'</option>';
+			}
+	}
 ?>

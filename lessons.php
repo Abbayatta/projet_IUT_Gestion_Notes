@@ -29,7 +29,7 @@
 <body>
 
     <div id="wrapper">
-        <?php include("nav.php"); include("get_all_lessons.php");?>
+        <?php include("nav.php"); include("get_lessons.php");?>
 
 		<div class="row text-center">
 			<h2>Cours</h2>

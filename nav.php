@@ -14,7 +14,7 @@ echo '<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">SCODOC</a>
+                <a class="navbar-brand" href="index.php">SCODOC</a>
             </div>
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
@@ -73,11 +73,11 @@ else if($_SESSION["rank"]==1)
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">SCODOC</a>
+                <a class="navbar-brand" href="exams.php">SCODOC</a>
             </div>
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li><a href="users.php"><i class="fa fa-list-ol"></i> Utilisateurs</a></li>
+                    <li><a href="users.php"><i class="fa fa-user"></i> Utilisateurs</a></li>
                     <li><a href="groups.php"><i class="fa fa-list-ol"></i> Groupes</a></li>
                     <li><a href="exams.php"><i class="fa fa-list-ol"></i> Evaluations</a></li>
                     <li><a href="stats.php"><i class="fa fa-tasks"></i> Statistiques</a></li>                   

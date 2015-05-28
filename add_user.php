@@ -151,11 +151,11 @@
 				</div>          
 			</div>
 			<div class="row">
-				<div class="col-md-2">
-				</div>
-				<div class="col-md-10">
+			</div>
+			<div class="row center-block">
+				<div class="text-center">
 					<button type="submit" class="btn btn-info">
-						Enregistrer
+							Enregistrer
 					</button>
 				</div>
 			</div>

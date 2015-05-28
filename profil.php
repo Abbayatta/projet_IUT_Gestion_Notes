@@ -22,10 +22,10 @@
 
     <div id="wrapper">
         <?php include("nav.php"); include("get_profil.php");?>
-		<div class="row center-block">
-            <div class="col-lg-8">
-				<div class="panel panel-default ">
-				  <!-- Default panel contents -->
+		
+		<div class="row center-block" style="width:80%;">
+            <div>
+				<div class="panel panel-default">
 				  <div class="panel-heading text-center"><h1 class="panel-title">Votre profil</h1></div>
 				  <div class="panel-body"><img class="thumbnail img-responsive" alt="Bootstrap template" src="images/photo.jpg" /></div> 
 
@@ -43,7 +43,7 @@
 		</div>
 		
 		<div class="row center-block">
-			<div class="col-lg-6 text-left">
+			<div class="text-center">
 				<h4><a href="modify_user.php"><i class="glyphicon-pencil"></i> Modifier votre profil</a></h4>
 			</div>
 		</div>

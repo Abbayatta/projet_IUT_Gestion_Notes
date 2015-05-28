@@ -7,7 +7,8 @@
 
 		include("pdo.php"); include("get_groups_list.php"); include("get_lessons_list.php"); 
 
-	?>
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
