@@ -1,4 +1,4 @@
-<?php session_start(); include("pdo.php"); include("get_groups_list.php"); ?>
+<?php session_start(); include("pdo.php"); include("get_groups.php"); ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -150,19 +150,23 @@
 					</p>
 				</div>          
 			</div>
+			<div class="col-md-9">
+					<i class="fa fa-lock fa-2x"></i> Ces champs sont obligatoires
+			</div>
 			<div class="row">
 			</div>
 			<div class="row center-block">
 				<div class="text-center">
+					<button type="reset" class="btn btn-info">
+						Annuler
+					</button>
 					<button type="submit" class="btn btn-info">
 							Enregistrer
 					</button>
 				</div>
 			</div>
 			</form>
-			<div class="col-md-9">
-					<i class="fa fa-lock fa-2x"> Ces champs sont obligatoires</i>
-			</div>
+			
 		</div>
     </div>
 	<!--<script>

@@ -1,4 +1,4 @@
-<?php session_start(); include("pdo.php"); include("get_groups_list.php"); ?>
+<?php session_start(); include("pdo.php"); include("get_groups.php"); ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>

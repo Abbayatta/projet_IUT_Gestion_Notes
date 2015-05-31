@@ -5,7 +5,7 @@
 	if ($_SESSION["rank"]==2 || $_SESSION["rank"]==1) 
 	{
 
-		include("pdo.php"); include("get_groups_list.php"); include("get_lessons_list.php"); 
+		include("pdo.php"); include("get_groups.php"); include("get_lessons.php"); 
 
 ?>
 
@@ -156,22 +156,22 @@
 					<i class="fa fa-lock fa-2x"></i>
 				</div>
 			</div>
+			<div class="col-md-9">
+					<i class="fa fa-lock fa-2x"></i> Ces champs sont obligatoires
+			</div>
 			<div class="row">
-				<div class="col-md-2">
-				</div>
-				<div class="col-md-10">
-					<button type="cancel" class="btn btn-info">
+			</div>
+			<div class="row center-block">
+				<div class="text-center">
+					<button type="reset" class="btn btn-info">
 						Annuler
 					</button>
 					<button type="submit" class="btn btn-info">
-						Enregistrer
+							Enregistrer
 					</button>
 				</div>
-			</div>
+			</div>>
 			</form>
-			<div class="col-md-9">
-					<i class="fa fa-lock fa-2x"> Ces champs sont obligatoires</i>
-			</div>
 		</div>
     </div>
 	<!--<script>

@@ -18,13 +18,13 @@ echo '<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             </div>
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li><a href="users.php"><i class="fa fa-list-ol"></i> Utilisateurs</a></li>
-                    <li><a href="groups.php"><i class="fa fa-globe"></i> Groupes</a></li>
-                    <li><a href="ue.php"><i class="fa fa-font"></i> UE</a></li>
-                    <li><a href="lessons.php"><i class="fa fa-font"></i> Matières</a></li>
-                    <li><a href="exams.php"><i class="fa fa-list-ol"></i> Evaluations</a></li>
-                    <li><a href="marks.php"><i class="fa fa-font"></i> Notes</a></li>  
-					<li><a href="stats.php"><i class="fa fa-tasks"></i> Statistiques</a></li>					
+                    <li><a href="users.php"><i class="fa fa-user"></i> Utilisateurs</a></li>
+                    <li><a href="groups.php"><i class="fa fa-users"></i> Groupes</a></li>
+                    <li><a href="ue.php"><i class="fa fa-university"></i> UE</a></li>
+                    <li><a href="lessons.php"><i class="fa fa-flask"></i> Matières</a></li>
+                    <li><a href="exams.php"><i class="fa fa-bar-chart-o"></i> Evaluations</a></li>
+                    <li><a href="marks.php"><i class="fa fa-trophy"></i> Notes</a></li>  
+					<li><a href="stats.php"><i class="fa fa-area-chart"></i> Statistiques</a></li>					
                 </ul>
                  <ul class="nav navbar-nav navbar-right navbar-user">
                     <li class="dropdown messages-dropdown">
