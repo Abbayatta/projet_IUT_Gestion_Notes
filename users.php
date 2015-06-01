@@ -54,6 +54,7 @@
 							<th>Département</th>
 							<th>Classe</th>
 							<th>Status</th>
+							<th>Modifier</th>
 						</tr>
 					</thead>
 			 
@@ -67,6 +68,7 @@
 							<th>Département</th>
 							<th>Classe</th>
 							<th>Status</th>
+							<th>Modifier</th>
 						</tr>
 					</tfoot>
 			 
@@ -99,6 +101,7 @@
 						$('td', row).eq(5).addClass('highlight');
 						$('td', row).eq(6).addClass('highlight');
 						$('td', row).eq(7).addClass('highlight');
+						$('td', row).eq(8).addClass('highlight');
 					}
 				}
 			} );

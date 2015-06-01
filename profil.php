@@ -44,7 +44,11 @@
 		
 		<div class="row center-block">
 			<div class="text-center">
-				<h4><a href="modify_user.php"><i class="glyphicon-pencil"></i> Modifier votre profil</a></h4>
+				<?php
+				echo ("<form method=\"post\" action=\"modify_user.php\">
+					<input type=\"hidden\" name=\"id\" value=".$_SESSION["id"].">
+					<a href=\"javascript:;\" onclick=\"parentNode.submit();\"><h4><i class=\"glyphicon-pencil\"></i> Modifier votre profil</h4></a>
+				</form>")?>
 			</div>
 		</div>
     </div>

@@ -29,6 +29,10 @@
 			{
 				echo '<td>Administrateur</td>';
 			}
+			echo "<td><form method=\"post\" action=\"modify_user.php\">
+					<input type=\"hidden\" name=\"id\" value=".$data["id"].">
+					<a href=\"javascript:;\" onclick=\"parentNode.submit();\"><h4><i class=\"glyphicon-pencil\"></i></h4></a>
+				</form>";
 			echo '</tr>';
 		}
 	}

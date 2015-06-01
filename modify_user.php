@@ -36,7 +36,6 @@
 			<div class="row text-center">
 				<h2>Modification</h2>
 				
-				<!--fonction php à faire pour modifier l'utilisateur-->
 				<?php
 
 					if (isset($_POST["login"])) 
@@ -53,7 +52,7 @@
 						'rank' => $_POST["rank"]
 						));
 						
-						echo "<div class='alert alert-success' role='alert' align='center'>Le nouvel utilisateur a bien été ajouté !</div>";
+						echo "<div class='alert alert-success' role='alert' align='center'>L'utilisateur a bien été modifié !</div>";
 						
 					}
 
@@ -68,7 +67,7 @@
 					Login :
 				</label>
 				<div class="col-md-9">
-					<input type="text" class="form-control" id="login" name="login" value=<?php echo (get_profil_element($_SESSION["id"], "login"))?> required>
+					<input type="text" class="form-control" id="login" name="login" value=<?php echo (get_profil_element($_POST["id"], "login"))?> required>
 				</div>
 				<div class="col-md-1">
 					<i class="fa fa-lock fa-2x"></i>
@@ -79,7 +78,7 @@
 					Prénom NOM :
 				</label>
 				<div class="col-md-9">
-					<input type="text" class="form-control" id="name" name="name" value=<?php echo (get_profil_element($_SESSION["id"], "name"))?> required>
+					<input type="text" class="form-control" id="name" name="name" value=<?php echo (get_profil_element($_POST["id"], "name"))?> required>
 				</div>
 				 <div class="col-md-1">
 					<i class="fa fa-lock fa-2x"></i>
@@ -90,7 +89,7 @@
 					Adresse mail :
 				</label>
 				<div class="col-md-9">
-					<input type="email" class="form-control" id="email" name="email" value=<?php echo (get_profil_element($_SESSION["id"], "mail"))?> required>
+					<input type="email" class="form-control" id="email" name="email" value=<?php echo (get_profil_element($_POST["id"], "mail"))?> required>
 				</div>
 				 <div class="col-md-1">
 					<i class="fa fa-lock fa-2x"></i>
@@ -101,7 +100,7 @@
 					Téléphone :
 				</label>
 				<div class="col-md-9">
-					<input type="text" class="form-control" id="phone" name="phone" value=<?php echo (get_profil_element($_SESSION["id"], "phone"))?>>
+					<input type="text" class="form-control" id="phone" name="phone" value=<?php echo (get_profil_element($_POST["id"], "phone"))?>>
 				</div>
 			</div>
 			<div>
