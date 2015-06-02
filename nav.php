@@ -2,7 +2,7 @@
 
 // Il faut compter les messages de l'utilisateur connecté
 // Modifier le '2' et mettre la variable contenant le nombre de message puis afficher les messages avec une fonction PHP à la place de 'annonce 1' et 'annonce 2'
-
+include ("get_messages.php");
 if ($_SESSION["rank"]==2) 
 {
 
@@ -28,25 +28,11 @@ echo '<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                 </ul>
                  <ul class="nav navbar-nav navbar-right navbar-user">
                     <li class="dropdown messages-dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> Messages <span class="badge">2</span> <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> Messages <span class="badge">'.get_nb_messages($_SESSION["id"]).'</span> <b class="caret"></b></a>
 						
                         <ul class="dropdown-menu">
-                            <li class="dropdown-header">2 Nouveau(x) message(s)</li>
-                            <li class="message-preview">
-                                <a href="#">
-                                    <span class="avatar"><i class="fa fa-bell"></i></span>
-                                    <span class="message">Annonce 1</span>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li class="message-preview">
-                                <a href="#">
-                                    <span class="avatar"><i class="fa fa-bell"></i></span>
-                                    <span class="message">Annonce 2</span>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li><a href="#">Boîte mail <span class="badge">2</span></a></li>
+                            <li class="dropdown-header">'.get_nb_messages($_SESSION["id"]).' Nouveau(x) message(s)</li>'.get_user_messages_subject($_SESSION["id"]).'
+                            <li><a href="#">Boîte mail <span class="badge">'.get_nb_messages($_SESSION["id"]).'</span></a></li>
                         </ul>
                     </li>
                      <li class="dropdown user-dropdown">

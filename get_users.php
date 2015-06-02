@@ -10,12 +10,12 @@
 		while ($data=$req->fetch()) 
 		{
 			echo '<tr>';
-			echo '<td>'.$data["id"].'</td>';
+			echo '<td style="text-align: center;">'.$data["id"].'</td>';
 			echo '<td>'.$data["login"].'</td>';
 			echo '<td>'.$data["name"].'</td>';
 			echo '<td>'.$data["mail"].'</td>';
-			echo '<td>'.$data["phone"].'</td>';
-			echo '<td>'.get_department($data["dept_id"]).'</td>';
+			echo '<td style="text-align: center;">'.$data["phone"].'</td>';
+			echo '<td style="text-align: center;">'.get_department($data["dept_id"]).'</td>';
 			echo '<td>'.get_group($data["group_id"]).'</td>';
 			if ($data["rank"]==0)
 			{
@@ -29,7 +29,7 @@
 			{
 				echo '<td>Administrateur</td>';
 			}
-			echo "<td><form method=\"post\" action=\"modify_user.php\">
+			echo "<td style=\"text-align: center;\"><form method=\"post\" action=\"modify_user.php\">
 					<input type=\"hidden\" name=\"id\" value=".$data["id"].">
 					<a href=\"javascript:;\" onclick=\"parentNode.submit();\"><h4><i class=\"glyphicon-pencil\"></i></h4></a>
 				</form>";
