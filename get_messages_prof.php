@@ -1,7 +1,7 @@
 <?php
 
 		include("pdo.php");
-		$req=$pdo->query('SELECT subject FROM messages WHERE recipient_id='.$_SESSION["id"]);
+		$req=$pdo->query('SELECT id,subject,sender_id FROM messages WHERE recipient_id='.$_SESSION["id"]);
 		
 		echo '<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="navbar-header">
@@ -27,13 +27,15 @@
                         <ul class="dropdown-menu">
                             <li class="dropdown-header">'.get_nb_messages($_SESSION["id"]).' Nouveau(x) message(s)</li>';
 	
-		while ($data=$req->fetch()) 
-		{
-			echo '<hr><li class="message-preview">';
-			echo '<a href="#">';
-			echo '<span class="avatar"><i class="fa fa-bell"></i></span>';
-			echo '<span class="message">'.$data[0].'</span></a></li>';
-		}
+        while ($data=$req->fetch()) 
+        {
+            $sender=get_user($data[2]);
+            echo '<hr><li class="message-preview">';
+            echo '<a href="read_message.php?id_msg='.$data[0].'">';
+            echo '<span class="avatar"><i class="fa fa-bell"></i></span>';
+            echo '<span class="message">'.$data[1].'</span></a></li>';
+            //echo '<span class="">De : '.$sender.'</span></a></li>';
+        }
 		
         echo  '<hr><li><a href="#">Boîte mail <span class="badge">'.get_nb_messages($_SESSION["id"]).'</span></a></li>
                         </ul>
