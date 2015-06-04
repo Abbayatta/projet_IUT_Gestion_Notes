@@ -1,3 +1,6 @@
-Maxime : Implémentation de la fonction de messagerie -> Paul : Ajout page lecture d'un message (en cliquant sur la notif dans la nav)
+Maxime : Implémentation de la fonction de messagerie -> En cours (voir dernier commit pour l'état de la messagerie)
+Paul : 	Ajout boite de réception -> FAIT
+	Ajout de l'état (lu/non lu) pour chaque message. Le compteur n'affiche que les messages non lus. 
+	Ajout page lecture d'un message (en cliquant sur la notif dans la nav ou sur lien dans la boite de réception) -> FAIT
 
 A la fin de toutes les modifications il faut penser à remettre le mot de passe 'a1tern@n6e$' dans le fichier pdo.php
