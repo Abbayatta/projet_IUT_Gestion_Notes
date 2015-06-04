@@ -1,6 +1,7 @@
 <?php
 
 		include("pdo.php");
+        //include("get_users.php");
 		$req=$pdo->query('SELECT id,subject,sender_id FROM messages WHERE recipient_id='.$_SESSION["id"]);
 		
 		echo '<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -32,7 +33,7 @@
 	
         while ($data=$req->fetch()) 
         {
-            $sender=get_user($data[2]);
+            //$sender=get_user($data[2]);
             echo '<hr><li class="message-preview">';
             echo '<a href="read_message.php?id_msg='.$data[0].'">';
             echo '<span class="avatar"><i class="fa fa-bell"></i></span>';
