@@ -9,6 +9,7 @@
 	$date=$data[3];
 	$sujet=$data[1];
 	$body=$data[2];
+	$pdo->exec('UPDATE messages SET state=1 WHERE id='.$id_msg.' AND recipient_id='.$_SESSION["id"]);
 ?>
 
 <!DOCTYPE html>

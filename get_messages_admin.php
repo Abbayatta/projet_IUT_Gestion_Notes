@@ -2,7 +2,7 @@
 
 		include("pdo.php");
         //include("get_users.php");
-		$req=$pdo->query('SELECT id,subject,sender_id FROM messages WHERE recipient_id='.$_SESSION["id"]);
+		$req=$pdo->query('SELECT id,subject,sender_id FROM messages WHERE state=0 AND recipient_id='.$_SESSION["id"]);
 		
 		echo '<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="navbar-header">
@@ -60,7 +60,7 @@
 	function get_nb_messages($user_id)
 	{
 		include("pdo.php");
-		$req=$pdo->query('SELECT count(*) FROM messages WHERE recipient_id='.$user_id);
+		$req=$pdo->query('SELECT count(*) FROM messages WHERE state=0 AND recipient_id='.$user_id);
 
 		while ($data=$req->fetch()) 
 		{
