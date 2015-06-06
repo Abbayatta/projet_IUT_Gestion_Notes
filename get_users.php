@@ -37,6 +37,16 @@
 		}
 	}
 	
+	function get_users_list()
+	{
+		include("pdo.php");
+		$req=$pdo->query('SELECT id,name FROM users ORDER BY name');
+
+		while ($data=$req->fetch()) 
+			{
+				echo '<option value="'.$data["id"].'">'.$data["name"].'</option>';
+			}
+	}
 	
 	function get_prof_users($user_id)
 	{
@@ -79,6 +89,16 @@
 		$data=$req->fetch();
 		$name=$data["name"];
 		return $name;
+	}
+
+	function get_user_id($user_name)
+	{
+		include("pdo.php");
+		$req=$pdo->prepare('SELECT id FROM users WHERE name= ?');
+		$req->execute(array($user_name));
+		$data=$req->fetch();
+		$id=$data["id"];
+		return $id;
 	}
 
 ?>
