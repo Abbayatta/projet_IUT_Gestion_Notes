@@ -37,6 +37,7 @@
                                 <th>Auteur</th>
                                 <th>Date</th>
                                 <th>Etat</th>
+                                <th>Supprimer</th>
                             </tr>
                         </thead>
                  
@@ -46,6 +47,7 @@
                                 <th>Auteur</th>
                                 <th>Date</th>
                                 <th>Etat</th>
+                                <th>Supprimer</th>
                             </tr>
                         </tfoot>
                  
