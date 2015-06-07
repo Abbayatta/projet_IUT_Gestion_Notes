@@ -36,6 +36,20 @@
                 </div>
                 <br><br>
 
+                <?php /* if(isset($_GET["recipient"])){ ?>
+
+                <!-- <div class="col-lg-3">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">Destinataire :</span>
+                        <?php echo "<input type='text' name='recipient' id='recipient' class='form-control' aria-describedby='basic-addon1' readonly required value='".$_GET["recipient"]."'>"; ?>
+                    </div>
+                </div>
+                <br><br> -->
+
+                <?php } 
+
+                else{ */ ?>
+
                 <div class="col-lg-3">
                     <div class="input-group">
                       <span class="input-group-addon" id="basic-addon1">Destinataire :</span>
@@ -45,6 +59,8 @@
                     </div>
                 </div>
                 <br><br>
+
+                <?php /* } */ ?>
 
                 <div class="col-lg-5">
                     <div class="input-group">

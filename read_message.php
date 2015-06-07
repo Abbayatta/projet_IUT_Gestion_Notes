@@ -61,7 +61,14 @@
 					 	echo "<input type='text' class='form-control' placeholder='".$date."' aria-describedby='basic-addon1' disabled>" ?>
 					</div>
             	</div>
-            	<br><br>
+
+            	<!-- NON FONCTIONNEL POUR LE MOMENT
+             	<br><br>
+            	<div class="col-lg-2">
+            	<?php echo "<a href=\"send_message.php?recipient=".$sender."\" onclick=\"parentNode.submit();\"><button type=\"submit\" name=\"answer\" id=\"answer\" class=\"btn btn-info\">Répondre</button></a>"; ?>
+				</div>-->
+
+				<br><br>
 
             	<div class="col-lg-5">
 					<div class="input-group">
@@ -73,7 +80,10 @@
 					</div>
             	</div>
 
-            </div>
+        	</div>
     </div>
+
+
+
 </body>
 </html>
