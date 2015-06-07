@@ -53,6 +53,7 @@
 								<th></th>
 								<th>Département</th>
 								<th>Description</th>
+								<th>Supprimer</th>
 							</tr>
 						</thead>
 				 
@@ -62,6 +63,7 @@
 								<th></th>
 								<th>Département</th>
 								<th>Description</th>
+								<th>Supprimer</th>
 							</tr>
 						</tfoot>
 				 

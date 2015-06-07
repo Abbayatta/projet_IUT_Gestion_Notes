@@ -41,7 +41,7 @@
             //echo '<span class="">De : '.$sender.'</span></a></li>';
         }
 		
-        echo  '<hr><li><a href="#">Boîte mail <span class="badge">'.get_nb_all_messages($_SESSION["id"]).'</span></a></li>
+        echo  '<hr><li><a href="inbox.php">Boîte mail <span class="badge">'.get_nb_all_messages($_SESSION["id"]).'</span></a></li>
                         </ul>
                     </li>
                      <li class="dropdown user-dropdown">

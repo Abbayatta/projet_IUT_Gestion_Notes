@@ -55,6 +55,7 @@
 							<th>Status</th>
 							<th>Modifier</th>
 							<th>Supprimer</th>
+							<th>Consulter</th>
 						</tr>
 					</thead>
 			 
@@ -69,6 +70,7 @@
 							<th>Status</th>
 							<th>Modifier</th>
 							<th>Supprimer</th>
+							<th>Consulter</th>
 						</tr>
 					</tfoot>
 			 
@@ -148,6 +150,7 @@ else if ($_SESSION["rank"]==1)
 							<th>Département</th>
 							<th>Classe</th>
 							<th>Status</th>
+							<th>Consulter</th>
 						</tr>
 					</thead>
 			 
@@ -160,6 +163,7 @@ else if ($_SESSION["rank"]==1)
 							<th>Département</th>
 							<th>Classe</th>
 							<th>Status</th>
+							<th>Consulter</th>
 						</tr>
 					</tfoot>
 			 

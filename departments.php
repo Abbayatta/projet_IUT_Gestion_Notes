@@ -42,6 +42,7 @@
 						<tr>	
 							<th>Département</th>
 							<th>Administrateur</th>
+							<th>Supprimer</th>
 						</tr>
 					</thead>
 			 
@@ -49,6 +50,7 @@
 						<tr>
 							<th>Département</th>
 							<th>Administrateur</th>
+							<th>Supprimer</th>
 						</tr>
 					</tfoot>
 			 

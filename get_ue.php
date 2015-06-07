@@ -25,7 +25,10 @@
 				echo '<td>'.$dept_name.'</td>';
 
 				echo '<td>'.$data["description"].'</td>';
-
+				echo "<td style=\"padding-left: 45px;\"><form method=\"post\" action=\"delete_ue.php\">
+					<input type=\"hidden\" name=\"id\" value=".$data["id"].">
+					<a href=\"javascript:;\" onclick=\"parentNode.submit();\"><h4><i class=\"fa fa-trash-o\"></i></h4></a>
+				</form>";
 				echo '</tr>';
 
 			}

@@ -44,6 +44,7 @@
 							<th>Groupe</th>
 							<th>Unité d'enseignement</th>
 							<th>Coefficient</th>
+							<th>Supprimer</th>
 						</tr>
 					</thead>
 			 
@@ -54,6 +55,7 @@
 							<th>Groupe</th>
 							<th>Unité d'enseignement</th>
 							<th>Coefficient</th>
+							<th>Supprimer</th>
 						</tr>
 					</tfoot>
 			 

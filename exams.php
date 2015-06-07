@@ -48,6 +48,7 @@
 							<th>Classe</th>
 							<th>Coefficient</th>
 							<th>Terminée</th>
+							<th>Supprimer</th>
 						</tr>
 					</thead>
 			 
@@ -61,6 +62,7 @@
 							<th>Classe</th>
 							<th>Coefficient</th>
 							<th>Terminée</th>
+							<th>Supprimer</th>
 						</tr>
 					</tfoot>
 			 
