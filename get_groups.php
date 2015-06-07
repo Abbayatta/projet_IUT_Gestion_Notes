@@ -32,7 +32,7 @@
 	{
 		include("pdo.php");
 
-		$req=$pdo->query('SELECT * FROM groups WHERE dept_id=(SELECT dept_id FROM users WHERE id='.$user_id.')');
+		$req=$pdo->query('SELECT * FROM groups WHERE group_id=(SELECT group_id FROM users WHERE id='.$user_id.')');
 
 		while ($data=$req->fetch()) 
 		{

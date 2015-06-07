@@ -53,7 +53,7 @@
 		include("pdo.php");
 		include("get_departments.php");
 		include("get_groups.php");
-		$req=$pdo->query('SELECT * FROM users WHERE dept_id=(SELECT dept_id FROM users WHERE id='.$user_id.')');
+		$req=$pdo->query('SELECT * FROM users WHERE dept_id=(SELECT dept_id FROM users WHERE id='.$user_id.') AND rank=0');
 
 		while ($data=$req->fetch()) 
 		{

@@ -41,14 +41,13 @@
             //echo '<span class="">De : '.$sender.'</span></a></li>';
         }
 		
-        echo  '<hr><li><a href="inbox.php">Boîte de réception <span class="badge">'.get_nb_messages($_SESSION["id"]).'</span></a></li>
+        echo  '<hr><li><a href="inbox.php">Boîte de réception <span class="badge">'.get_nb_all_messages($_SESSION["id"]).'</span></a></li>
                         </ul>
                     </li>
                      <li class="dropdown user-dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> '.$_SESSION["name"].'<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="profil.php"><i class="fa fa-user"></i> Profil</a></li>
-                            <li><a href="options.php"><i class="fa fa-gear"></i> Options</a></li>
                             <li class="divider"></li>
                             <li><a href="logoff.php"><i class="fa fa-power-off"></i> Déconnexion</a></li>
                         </ul>
@@ -67,5 +66,15 @@
 			return $data[0];
 		}
 	}
+	
+	function get_nb_all_messages($user_id)
+	{
+		include("pdo.php");
+		$req=$pdo->query('SELECT count(*) FROM messages WHERE recipient_id='.$user_id);
 
+		while ($data=$req->fetch()) 
+		{
+			return $data[0];
+		}
+	}
 ?>

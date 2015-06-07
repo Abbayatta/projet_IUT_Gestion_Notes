@@ -47,7 +47,39 @@
         header("Location: bulletin.php");
       }
   }
+  
+	else if (isset($_SESSION["fail"]))
+	{
+	?>	
+	<!-- ERREUR -->
+	<div class="container">
 
+      <div class="starter-template">
+        <h1>Scodoc</h1>
+        <p class="lead">Connectez-vous à l'application Scodoc avec votre numéro d'étudiant</p>
+      </div>
+    </div><!-- /.container -->
+	<div class='alert alert-danger' role='alert' align='center'>Veuillez entrer une nom d'utilisateur ou un mot de passe valide.</div>
+	<div class="container">
+
+      <form class="form-signin" method="post" action="verif.php">
+        <h2 class="form-signin-heading"></h2>
+        <label for="inputAccount" class="sr-only">Compte</label>
+        <input type="text" id="inputAccount" name="inputAccount" class="form-control" placeholder="Compte" required autofocus>
+        <label for="inputPassword" class="sr-only">Mot de passe</label>
+        <input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="Mot de passe" required>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Se souvenir de moi
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Connexion</button>
+      </form>
+
+    </div> <!-- /container -->
+	<?php	
+	}
+	
   else
   {
 

@@ -187,11 +187,6 @@ else if ($_SESSION["rank"]==1)
 				</table>
             </div>
         </div>  
-		<div class="row center-block">
-			<div class="col-lg-6 text-left">
-				<h4><a href="add_user.php"><i class="fa fa-plus"></i> Nouvel utilisateur</a></h4>
-			</div>
-		</div>
     </div>
 	
 	<script type="text/javascript">

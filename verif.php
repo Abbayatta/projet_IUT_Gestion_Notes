@@ -20,6 +20,7 @@ if (!empty($donnees))
 
 else
 {
+	$_SESSION["fail"]="fail";
    header("Location: index.php");
    exit();
 }

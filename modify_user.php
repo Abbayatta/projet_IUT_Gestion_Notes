@@ -114,7 +114,7 @@
 					Mot de passe :
 				</label>
 				<div class="col-md-9">
-					<input type="password" class="form-control" id="passwd" name="passwd" value="" required> <!--fonction php à faire-->
+					<input type="password" class="form-control" id="passwd" name="passwd" value="" required>
 				</div>
 				 <div class="col-md-1">
 					<i class="fa fa-lock fa-2x"></i>
@@ -230,18 +230,27 @@ else if ($_SESSION["rank"]==1)
 				
 				<?php
 
-					if (isset($_POST["login"])) 
+					if (isset($_POST["passwd"])) 
 					{
 
-						$req = $pdo->prepare('INSERT INTO users(name, login, phone, passwd, mail, group_id, rank) VALUES(:name, :login, :phone, :passwd, :mail, :group_id, :rank)');
+						$req = $pdo->prepare('INSERT INTO users(phone, passwd, mail) VALUES(:phone, :passwd, :mail)');
 						$req->execute(array(
-						'name' => $_POST["name"],
-						'login' => $_POST["login"],
 						'phone' => $_POST["phone"],
 						'passwd' => md5($_POST["passwd"]),
-						'mail' => $_POST["email"],
-						'group_id' => $_POST["group"],
-						'rank' => $_POST["rank"]
+						'mail' => $_POST["email"]
+						));
+						
+						echo "<div class='alert alert-success' role='alert' align='center'>L'utilisateur a bien été modifié !</div>";
+						
+					}
+					
+					else if (isset($_POST["login"])) 
+					{
+
+						$req = $pdo->prepare('INSERT INTO users(phone, mail) VALUES(:phone, :mail)');
+						$req->execute(array(
+						'phone' => $_POST["phone"],
+						'mail' => $_POST["email"]
 						));
 						
 						echo "<div class='alert alert-success' role='alert' align='center'>L'utilisateur a bien été modifié !</div>";
@@ -253,29 +262,7 @@ else if ($_SESSION["rank"]==1)
 					}
 				?>
 			</div>
-			<form class="form-signin" method="post" action="">
-			<div>
-				<label for="login" class="col-md-2">
-					Login :
-				</label>
-				<div class="col-md-9">
-					<input type="text" class="form-control" id="login" name="login" value=<?php echo (get_profil_element($_POST["id"], "login"))?> required>
-				</div>
-				<div class="col-md-1">
-					<i class="fa fa-lock fa-2x"></i>
-				</div>
-			</div>        
-			<div>
-				<label for="name" class="col-md-2">
-					Prénom NOM :
-				</label>
-				<div class="col-md-9">
-					<input type="text" class="form-control" id="name" name="name" value=<?php echo (get_profil_element($_POST["id"], "name"))?> required>
-				</div>
-				 <div class="col-md-1">
-					<i class="fa fa-lock fa-2x"></i>
-				</div>
-			</div>
+			<form class="form-signin" method="post" action="">     
 			<div>
 				<label for="email" class="col-md-2">
 					Adresse mail :
@@ -297,38 +284,10 @@ else if ($_SESSION["rank"]==1)
 			</div>
 			<div>
 				<label for="passwd" class="col-md-2">
-					Mot de passe :
+					Nouveau mot de passe :
 				</label>
 				<div class="col-md-9">
-					<input type="password" class="form-control" id="passwd" name="passwd" value="" required> <!--fonction php à faire-->
-				</div>
-				 <div class="col-md-1">
-					<i class="fa fa-lock fa-2x"></i>
-				</div>
-			</div>
-			<div>
-				<label for="fonction" class="col-md-2">
-					Fonction:
-				</label>
-				<div class="col-md-9">
-					<select id="rank" name="rank" class="form-control"> <!--fonction php à faire-->
-						<option value="0">Elève</option>
-						<option value="1">Professeur</option>
-						<option value="2">Administrateur</option>
-					</select>
-				</div>          
-			</div>
-			<div>
-				<label for="group" class="col-md-2">
-					Groupe :
-				</label>
-				<div class="col-md-9">
-					<select name="group" id="group" class="form-control"> <!--fonction php à faire-->
-						<?php get_groups_list(); ?>
-					</select>
-				</div>
-				<div class="col-md-1">
-					<i class="fa fa-lock fa-2x"></i>
+					<input type="password" class="form-control" id="passwd" name="passwd" value="">
 				</div>
 			</div>
 			<div>
@@ -416,14 +375,27 @@ else if ($_SESSION["rank"]==0)
 				
 				<?php
 
-					if (isset($_POST["login"])) 
+					if (isset($_POST["passwd"])) 
 					{
 
 						$req = $pdo->prepare('INSERT INTO users(phone, passwd, mail) VALUES(:phone, :passwd, :mail)');
 						$req->execute(array(
 						'phone' => $_POST["phone"],
 						'passwd' => md5($_POST["passwd"]),
-						'mail' => $_POST["email"],
+						'mail' => $_POST["email"]
+						));
+						
+						echo "<div class='alert alert-success' role='alert' align='center'>L'utilisateur a bien été modifié !</div>";
+						
+					}
+					
+					else if (isset($_POST["login"])) 
+					{
+
+						$req = $pdo->prepare('INSERT INTO users(phone, mail) VALUES(:phone, :mail)');
+						$req->execute(array(
+						'phone' => $_POST["phone"],
+						'mail' => $_POST["email"]
 						));
 						
 						echo "<div class='alert alert-success' role='alert' align='center'>L'utilisateur a bien été modifié !</div>";

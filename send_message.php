@@ -50,7 +50,7 @@
                     <div class="input-group">
                         <label>Message</label>
                         <br>
-                        <textarea cols='58' rows='6' name="body" id="body"></textarea>
+                        <textarea cols='58' rows='6' name="body" id="body" style="resize: none;"></textarea>
                     </div>
                 </div>
                 <br><br><br><br><br><br><br><br>
