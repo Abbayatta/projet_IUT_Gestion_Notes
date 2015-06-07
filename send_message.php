@@ -54,8 +54,8 @@
                     <div class="input-group">
                       <span class="input-group-addon" id="basic-addon1">Destinataire :</span>
                         <select name="recipient" id="recipient" class="form-control" required>
-                        <?php get_users_list(); ?>
-                    </select>
+                            <?php get_users_list(); ?>
+                        </select>
                     </div>
                 </div>
                 <br><br>

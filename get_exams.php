@@ -28,6 +28,17 @@
 			echo '</tr>';
 		}
 	}
+
+	function get_exams_list($user_id)
+	{
+		include("pdo.php");
+		$req=$pdo->query('SELECT id,title,date FROM exams ORDER BY title');
+
+		while ($data=$req->fetch()) 
+			{
+				echo '<option value="'.$data["id"].'">'.$data["title"].' du '.$data["date"].'</option>';
+			}
+	}
 	
 	function get_prof_exams($user_id)
 	{
