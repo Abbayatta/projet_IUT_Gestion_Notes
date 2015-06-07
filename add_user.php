@@ -40,14 +40,15 @@
 					if (isset($_POST["login"])) 
 					{
 						$req_dept_id=$pdo->query('SELECT dept_id FROM groups WHERE id='.$_POST["group"]);
-						$req = $pdo->prepare('INSERT INTO users(name, login, phone, passwd, mail, dept_id, group_id, rank) VALUES(:name, :login, :phone, :passwd, :mail, :group_id, :rank)');
+						$dept_id=$req_dept_id->fetch();
+						$req = $pdo->prepare('INSERT INTO users(name, login, phone, passwd, mail, dept_id, group_id, rank) VALUES(:name, :login, :phone, :passwd, :mail, :dept_id, :group_id, :rank)');
 						$req->execute(array(
 						'name' => $_POST["name"],
 						'login' => $_POST["login"],
 						'phone' => $_POST["phone"],
 						'passwd' => md5($_POST["passwd"]),
 						'mail' => $_POST["email"],
-						'dept_id' => $req_dept_id[0],
+						'dept_id' => $dept_id[0],
 						'group_id' => $_POST["group"],
 						'rank' => $_POST["rank"]
 						));

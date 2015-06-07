@@ -1,5 +1,21 @@
 <?php
 
+	function get_all_departments()
+	{
+		include("pdo.php");
+
+		$req=$pdo->query('SELECT * FROM departments');
+		while ($data=$req->fetch()) 
+		{
+			echo '<tr>';
+			echo '<td>'.$data["name"].'</td>';
+			$req_admin=$pdo->query('SELECT name FROM users WHERE id='.$data["admin_id"]);
+			$data_admin=$req_admin->fetch();
+			echo '<td>'.$data_admin["name"].'</td>';
+			echo '</tr>';
+		}
+	}
+	
 	function get_department($dept_id)
 	{
 		include("pdo.php");

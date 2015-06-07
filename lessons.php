@@ -42,6 +42,7 @@
 							<th>Intitulé</th>
 							<th>Professeur</th>
 							<th>Groupe</th>
+							<th>Unité d'enseignement</th>
 							<th>Coefficient</th>
 						</tr>
 					</thead>
@@ -51,6 +52,7 @@
 							<th>Intitulé</th>
 							<th>Professeur</th>
 							<th>Groupe</th>
+							<th>Unité d'enseignement</th>
 							<th>Coefficient</th>
 						</tr>
 					</tfoot>

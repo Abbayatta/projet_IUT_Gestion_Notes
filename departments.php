@@ -3,16 +3,16 @@
 	session_start();
 
 	if ($_SESSION["rank"]==2) 
-	{
-		
-?>
-<!-- ADMINISTRATEUR -->
+	{ ?>
+
 <!DOCTYPE html>
-<html lang="en">
+
+<!-- ADMINISTRATEUR -->
+<html lang="fr">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liste des utilisateurs</title>
+    <title>Liste des départements</title>
 
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
@@ -26,65 +26,44 @@
 	<!-- you need to include : pour travailler sur les tableaux -->
 	<script type="text/javascript" src="js/dataTables-utilisateur.min.js"></script>  
 
-	<style>
-        td.highlight {
-		color: red;
-        <!--font-weight: bold;-->
-    }
-    </style>
 </head>
 <body>
 
     <div id="wrapper">
-        <?php include("nav.php"); include("get_users.php");?>
-		
+        <?php include("nav.php"); include("get_departments.php");?>
+
 		<div class="row text-center">
-			<h2>Utilisateurs</h2>
+			<h2>Départements</h2>
 		</div>
 		<div class="row center-block">
             <div class="col-lg-12 ">
 				<table id="example" class="display" cellspacing="0" width="100%">
 					<thead>
 						<tr>	
-							<th>Matricule</th>
-							<th>Prénom - Nom</th>
-							<th>Adresse mail</th>
-							<th>Numéro de téléphone</th>
 							<th>Département</th>
-							<th>Classe</th>
-							<th>Status</th>
-							<th>Modifier</th>
-							<th>Supprimer</th>
+							<th>Administrateur</th>
 						</tr>
 					</thead>
 			 
 					<tfoot>
 						<tr>
-							<th>Matricule</th>
-							<th>Prénom - Nom</th>
-							<th>Adresse mail</th>
-							<th>Numéro de téléphone</th>
 							<th>Département</th>
-							<th>Classe</th>
-							<th>Status</th>
-							<th>Modifier</th>
-							<th>Supprimer</th>
+							<th>Administrateur</th>
 						</tr>
 					</tfoot>
 			 
 					<tbody>
-					<?php get_all_users(); ?>
+						<?php get_all_departments(); ?>
 					</tbody>
 				</table>
             </div>
         </div>  
 		<div class="row center-block">
 			<div class="col-lg-6 text-left">
-				<h4><a href="add_user.php"><i class="fa fa-plus"></i> Nouvel utilisateur</a></h4>
+				<h4><a href="add_department.php"><i class="fa fa-plus"></i> Nouveau département</a></h4>
 			</div>
 		</div>
     </div>
-	
 	<script type="text/javascript">
 	<!-- you need to include : pour travailler sur les tableaux -->
         jQuery(function ($) {
@@ -99,15 +78,14 @@
 }
 
 else if ($_SESSION["rank"]==1)
-{
+{	
 ?>
 <!-- PROFESSEUR -->
-<!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liste des utilisateurs</title>
+    <title>Vue des évaluations</title>
 
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
@@ -121,72 +99,67 @@ else if ($_SESSION["rank"]==1)
 	<!-- you need to include : pour travailler sur les tableaux -->
 	<script type="text/javascript" src="js/dataTables-utilisateur.min.js"></script>  
 
-	<style>
-        td.highlight {
-		color: red;
-        <!--font-weight: bold;-->
-    }
-    </style>
 </head>
 <body>
 
     <div id="wrapper">
-        <?php include("nav.php"); include("get_users.php");?>
-		
+        <?php include("nav.php"); include("get_exams.php");?>
+
 		<div class="row text-center">
-			<h2>Utilisateurs</h2>
+			<h2>Evaluations</h2>
 		</div>
 		<div class="row center-block">
             <div class="col-lg-12 ">
 				<table id="example" class="display" cellspacing="0" width="100%">
 					<thead>
 						<tr>	
-							<th>Matricule</th>
-							<th>Prénom - Nom</th>
-							<th>Adresse mail</th>
-							<th>Numéro de téléphone</th>
-							<th>Département</th>
+							<th>Intitulé</th>
+							<th>Date de l'évaluation</th>
+							<th>Heure début</th>
+							<th>Heure de fin</th>
+							<th>Créateur</th>
 							<th>Classe</th>
-							<th>Status</th>
+							<th>Coefficient</th>
+							<th>Terminée</th>
 						</tr>
 					</thead>
 			 
 					<tfoot>
 						<tr>
-							<th>Matricule</th>
-							<th>Prénom - Nom</th>
-							<th>Adresse mail</th>
-							<th>Numéro de téléphone</th>
-							<th>Département</th>
+							<th>Intitulé</th>
+							<th>Date de l'évaluation</th>
+							<th>Heure début</th>
+							<th>Heure de fin</th>
+							<th>Créateur</th>
 							<th>Classe</th>
-							<th>Status</th>
+							<th>Coefficient</th>
+							<th>Terminée</th>
 						</tr>
 					</tfoot>
 			 
 					<tbody>
-					<?php get_prof_users($_SESSION["id"]); ?>
+						<?php get_prof_exams($_SESSION["id"]); ?>
 					</tbody>
 				</table>
             </div>
-        </div>  
+        </div> 
+		<div class="row center-block">
+				<div class="text-center">
+					<h4><a href="add_exam.php"><i class="fa fa-plus"></i> Nouvelle évaluation</a></h4>
+				</div>
+			</div>
     </div>
-	
 	<script type="text/javascript">
+	<!-- you need to include : pour travailler sur les tableaux -->
         jQuery(function ($) {
-		
-		<!-- you need to include : pour travailler sur les tableaux -->
 		$(document).ready(function() {
-			$('#example').dataTable( {
-				"createdRow": function ( row, data, index ) {
-				}
-			} );
-		} );
+			$('#example').dataTable( {"createdRow": function ( row, data, index ) {}} );} );
 		});
     </script>
 
 </body>
 </html>
-	
+
 <?php	
 }
 

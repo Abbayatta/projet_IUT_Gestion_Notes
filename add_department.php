@@ -1,10 +1,10 @@
-<?php session_start(); include("pdo.php"); include("get_groups.php"); include("get_teachers_list.php"); include("get_ue.php");?>
+<?php session_start(); include("pdo.php"); include("get_users.php"); ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajout d'un cours</title>
+    <title>Ajout d'un département</title>
 
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
@@ -33,92 +33,54 @@
 	
 		<div>
 			<div class="row text-center">
-				<h2>Nouveau cours</h2>
+				<h2>Nouveau département</h2>
 				<?php
 
-					if (isset($_POST["lesson_name"])) 
+					if (isset($_POST["name"])) 
 					{
 
-						$req = $pdo->prepare('INSERT INTO lessons(lesson_name, user_id, group_id, teachingunit_id, lesson_coefficient) VALUES(:lesson_name, :user_id, :group_id, :teachingunit_id, :lesson_coefficient)');
+						$req = $pdo->prepare('INSERT INTO departments(name, admin_id) VALUES(:name, :admin_id)');
 						$req->execute(array(
-						'lesson_name' => $_POST["lesson_name"],
-						'user_id' => $_POST["user_id"],
-						'group_id' => $_POST["group_id"],
-						'teachingunit_id' => $_POST["teachingunit_id"],
-						'lesson_coefficient' => $_POST["lesson_coefficient"]
+						'name' => $_POST["name"],
+						'admin_id' => $_POST["admin_id"]
 						));
-						echo "<div class='alert alert-success' role='alert' align='center'>Le nouveau cours a bien été ajouté !</div>";
+						echo "<div class='alert alert-success' role='alert' align='center'>Le nouveau département a bien été ajouté !</div>";
 					}
 
 					else
 					{
-						echo "<div class='alert alert-info' role='alert' align='center'>Veuillez compléter les champs pour ajouter un cours.</div>";
+						echo "<div class='alert alert-info' role='alert' align='center'>Veuillez compléter les champs pour ajouter un département.</div>";
 					}
 				?>
 			</div>
 			<form class="form-signin" method="post" action="">
 			<div>
-				<label for="lesson_name" class="col-md-2">
-					Intitulé :
+				<label for="name" class="col-md-2">
+					Nom du département :
 				</label>
 				<div class="col-md-9">
-					<input type="text" class="form-control" id="lesson_name" name="lesson_name" placeholder="Entrer l'intitulé du cours" required autofocus>
+					<input type="text" class="form-control" id="name" name="name" placeholder="Entrer le nom du département" required autofocus>
 				</div>
 				<div class="col-md-1">
 					<i class="fa fa-lock fa-2x"></i>
 				</div>
 			</div>
 			<div>
-				<label for="user_id" class="col-md-2">
-					Professeur :
+				<label for="admin_id" class="col-md-2">
+					Administrateur :
 				</label>
 				<div class="col-md-9">
-					<select name="user_id" id="user_id" class="form-control" required>
-						<?php get_teachers_list(); ?>
+					<select name="admin_id" id="admin_id" class="form-control" required>
+						<?php get_admin_list(); ?>
 					</select>
 				</div>
 				<div class="col-md-1">
 					<i class="fa fa-lock fa-2x"></i>
 				</div>
 			</div>
-			<div>
-				<label for="group_id" class="col-md-2">
-					Groupe :
-				</label>
-				<div class="col-md-9">
-					<select name="group_id" id="group_id" class="form-control" required>
-						<?php get_groups_list(); ?>
-					</select>
-				</div>
-				<div class="col-md-1">
-					<i class="fa fa-lock fa-2x"></i>
-				</div>
+			<div class="row">
 			</div>
-			<div>
-				<label for="group" class="col-md-2">
-					Unité d'enseignement :
-				</label>
 				<div class="col-md-9">
-					<select name="teachingunit_id" id="teachingunit_id" class="form-control" required>
-						<?php get_ue_list(); ?>
-					</select>
-				</div>
-				<div class="col-md-1">
-					<i class="fa fa-lock fa-2x"></i>
-				</div>
-			</div>
-			<div>
-				<label for="lesson_coefficient" class="col-md-2">
-					Coefficient :
-				</label>
-				<div class="col-md-9">
-					<input type="number" class="form-control" id="lesson_coefficient" name="lesson_coefficient" placeholder="Entrez le coefficient" required>
-				</div>
-				<div class="col-md-1">
-					<i class="fa fa-lock fa-2x"></i>
-				</div>
-			</div>
-			<div class="col-md-9">
 					<i class="fa fa-lock fa-2x"></i> Ces champs sont obligatoires
 			</div>
 			<div class="row">
@@ -129,7 +91,7 @@
 						Annuler
 					</button>
 					<button type="submit" class="btn btn-info">
-							Enregistrer
+						Enregistrer
 					</button>
 				</div>
 			</div>

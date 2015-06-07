@@ -10,7 +10,6 @@
 		while ($data=$req->fetch()) 
 		{
 			echo '<tr>';
-			echo '<td style="text-align: center;">'.$data["id"].'</td>';
 			echo '<td>'.$data["login"].'</td>';
 			echo '<td>'.$data["name"].'</td>';
 			echo '<td>'.$data["mail"].'</td>';
@@ -31,7 +30,12 @@
 			}
 			echo "<td style=\"text-align: center;\"><form method=\"post\" action=\"modify_user.php\">
 					<input type=\"hidden\" name=\"id\" value=".$data["id"].">
-					<a href=\"javascript:;\" onclick=\"parentNode.submit();\"><h4><i class=\"glyphicon-pencil\"></i></h4></a>
+					<a href=\"javascript:;\" onclick=\"parentNode.submit();\"><h4><i class=\"fa fa-pencil\"></i></h4></a>
+				</form>";
+			
+			echo "<td style=\"text-align: center;\"><form method=\"post\" action=\"delete_user.php\">
+					<input type=\"hidden\" name=\"id\" value=".$data["id"].">
+					<a href=\"javascript:;\" onclick=\"parentNode.submit();\"><h4><i class=\"fa fa-trash-o\"></i></h4></a>
 				</form>";
 			echo '</tr>';
 		}
@@ -41,6 +45,17 @@
 	{
 		include("pdo.php");
 		$req=$pdo->query('SELECT id,name FROM users ORDER BY name');
+
+		while ($data=$req->fetch()) 
+			{
+				echo '<option value="'.$data["id"].'">'.$data["name"].'</option>';
+			}
+	}
+	
+	function get_admin_list()
+	{
+		include("pdo.php");
+		$req=$pdo->query('SELECT id,name FROM users WHERE rank=2 ORDER BY name');
 
 		while ($data=$req->fetch()) 
 			{
@@ -58,7 +73,6 @@
 		while ($data=$req->fetch()) 
 		{
 			echo '<tr>';
-			echo '<td>'.$data["id"].'</td>';
 			echo '<td>'.$data["login"].'</td>';
 			echo '<td>'.$data["name"].'</td>';
 			echo '<td>'.$data["mail"].'</td>';

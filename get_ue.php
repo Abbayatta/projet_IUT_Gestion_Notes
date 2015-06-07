@@ -31,4 +31,15 @@
 			}
 		}
 	}
+	
+	function get_ue_list()
+	{
+		include("pdo.php");
+		$req=$pdo->query('SELECT * FROM teachingunit');
+
+		while ($data=$req->fetch()) 
+			{
+				echo '<option value="'.$data["id"].'">'.$data["description"]." [".$data["name"]."]".'</option>';
+			}
+	}
 ?>

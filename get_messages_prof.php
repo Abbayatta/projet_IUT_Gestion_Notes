@@ -18,8 +18,7 @@
                 <ul class="nav navbar-nav side-nav">
                     <li><a href="users.php"><i class="fa fa-user"></i> Utilisateurs</a></li>
                     <li><a href="groups.php"><i class="fa fa-list-ol"></i> Groupes</a></li>
-                    <li><a href="exams.php"><i class="fa fa-list-ol"></i> Evaluations</a></li>
-                    <li><a href="stats.php"><i class="fa fa-tasks"></i> Statistiques</a></li>					
+                    <li><a href="exams.php"><i class="fa fa-list-ol"></i> Evaluations</a></li>				
                 </ul>
                  <ul class="nav navbar-nav navbar-right navbar-user">
                     <li class="dropdown messages-dropdown">

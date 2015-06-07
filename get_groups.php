@@ -18,7 +18,7 @@
 			$dept_name=$data2["name"];
 			echo '<td>'.$dept_name.'</td>';
 
-			$req3=$pdo->query('SELECT COUNT(id) as count FROM users WHERE group_id='.$data["id"].'');
+			$req3=$pdo->query('SELECT COUNT(*) as count FROM users WHERE group_id='.$data["id"].' AND rank=0');
 			$data3=$req3->fetch();
 			$stud_count=$data3["count"];
 			echo '<td>'.$stud_count.'</td>';
