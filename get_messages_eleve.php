@@ -2,7 +2,7 @@
 
 		include("pdo.php");
         //include("get_users.php");
-		$req=$pdo->query('SELECT id,subject,sender_id FROM messages WHERE recipient_id='.$_SESSION["id"]);
+		$req=$pdo->query('SELECT id,subject,sender_id FROM messages WHERE state=0 AND recipient_id='.$_SESSION["id"]);
 		
 		echo '<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="navbar-header">
