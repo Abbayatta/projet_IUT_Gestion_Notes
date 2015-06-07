@@ -16,9 +16,9 @@
             </div>
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li><a href="users.php"><i class="fa fa-user"></i> Utilisateurs</a></li>
-                    <li><a href="groups.php"><i class="fa fa-list-ol"></i> Groupes</a></li>
-                    <li><a href="exams.php"><i class="fa fa-list-ol"></i> Evaluations</a></li>				
+                    <li><a href="users.php"><i class="fa fa-user"></i> Élèves</a></li>
+					<li><a href="lessons.php"><i class="fa fa-flask"></i> Cours</a></li>
+                    <li><a href="exams.php"><i class="fa fa-bar-chart-o"></i> Evaluations</a></li>				
                 </ul>
                  <ul class="nav navbar-nav navbar-right navbar-user">
                     <li class="dropdown messages-dropdown">
@@ -37,7 +37,7 @@
             //echo '<span class="">De : '.$sender.'</span></a></li>';
         }
 		
-        echo  '<hr><li><a href="#">Boîte mail <span class="badge">'.get_nb_all_messages($_SESSION["id"]).'</span></a></li>
+        echo  '<hr><li><a href="inbox.php">Boîte mail <span class="badge">'.get_nb_all_messages($_SESSION["id"]).'</span></a></li>
                         </ul>
                     </li>
                      <li class="dropdown user-dropdown">

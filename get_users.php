@@ -5,7 +5,7 @@
 		include("pdo.php");
 		include("get_departments.php");
 		include("get_groups.php");
-		$req=$pdo->query('SELECT * FROM users');
+		$req=$pdo->query('SELECT * FROM users WHERE id!='.$_SESSION["id"]);
 
 		while ($data=$req->fetch()) 
 		{

@@ -52,7 +52,7 @@
 			<div class="span4">
 			  <!--(tech):FIXME:reformater affichage date -->
 			  <h3 class="text-right">
-				Semestre 3 FAP 2014 - 2015</h3>
+				Semestre 3 2014 - 2015</h3>
 			</div>
 		</div>
 
