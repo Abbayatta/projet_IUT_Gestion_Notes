@@ -36,6 +36,17 @@
 	function get_exams_list($user_id)
 	{
 		include("pdo.php");
+		$req=$pdo->query('SELECT id,title,date FROM exams WHERE user_id='.$user_id.' ORDER BY title');
+
+		while ($data=$req->fetch()) 
+			{
+				echo '<option value="'.$data["id"].'">'.$data["title"].' du '.$data["date"].'</option>';
+			}
+	}
+
+	function get_all_exams_list()
+	{
+		include("pdo.php");
 		$req=$pdo->query('SELECT id,title,date FROM exams ORDER BY title');
 
 		while ($data=$req->fetch()) 
