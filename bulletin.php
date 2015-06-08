@@ -22,7 +22,7 @@
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>  
 	
 	<!-- you need to include : pour travailler sur les tableaux -->
-	<script type="text/javascript" src="js/dataTables-utilisateur.min.js"></script>  
+	<script type="text/javascript" src="js/dataTables-utilisateur.min.js"></script>
 
 	<style>
         td.highlight {
@@ -145,7 +145,13 @@
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>  
 	
 	<!-- you need to include : pour travailler sur les tableaux -->
-	<script type="text/javascript" src="js/dataTables-utilisateur.min.js"></script>  
+	<script type="text/javascript" src="js/dataTables-utilisateur.min.js"></script> 
+
+	<script type="text/javascript" src="js/tableExport.js"></script>
+	<script type="text/javascript" src="js/jquery.base64.js"></script>
+	<script type="text/javascript" src="js/jspdf/libs/sprintf.js"></script>
+	<script type="text/javascript" src="js/jspdf/jspdf.js"></script>
+	<script type="text/javascript" src="js/jspdf/libs/base64.js"></script> 
 
 	<style>
         td.highlight {
@@ -184,7 +190,7 @@
 
         <div class="row center-block">
 			<div>
-				<table class="table table-striped table-hover">
+				<table class="table table-striped table-hover" id="bulletin">
 					<caption>Tableau des notes</caption>
 					<thead>
 						<tr>
@@ -242,7 +248,12 @@
 					</tbody>
 				</table>
 			</div>
-		</div>      
+		</div> 
+
+		<a onClick ="$('#bulletin').tableExport({type:'pdf',escape:'false'});" href="#"><button>Exporter en PDF</button></a>
+
+		<a onClick ="$('#bulletin').tableExport({type:'csv',escape:'false'});" href="#"><button>Exporter en CSV</button></a>
+
 	</div>
 	</div>
 <?php 
