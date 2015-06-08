@@ -62,12 +62,11 @@
         <div class="row">
 			<div>
 				<table class="table table-striped table-hover">
-					<caption>Tableau des notes</caption>
 					<thead>
 						<tr>
-						  <th>UE (WIP)</th>
+						  <th>UE </th>
 						  <th>Module</th>
-						  <th>Evaluation</th>
+						<!--  <th>Evaluation</th> -->
 						  <th>Note/20</th>
 						  <th>Coef</th>
 						</tr>
@@ -75,7 +74,7 @@
 					<tbody>
 						<!--(tech):doc:cf http://twitter.github.io/bootstrap/base-css.html -->
 						<tr class="lead info">
-							<td colspan="3">Moyenne générale: </td>
+							<td colspan="2">Moyenne générale: </td>
 							<?php
 							echo "<td>".overall_avg_calculator($_SESSION["id"])."</td>";
 							?>
@@ -87,31 +86,23 @@
 							<td></td>
 							<td></td>
 							<td>??</td>
-							<td>??</td>
 						</tr>
 						<!--(tech):DEBUT Affichage les modules de UE -->
 								  
 						<?php
-						$req = $pdo->prepare('SELECT lesson_name,lesson_coefficient FROM lessons,groups,users WHERE lessons.group_id=groups.id AND groups.id=users.group_id AND users.id= ?');
-						$req->execute(array($_SESSION["id"]));
+						$req = $pdo->query('SELECT lesson_name,lesson_coefficient FROM lessons,users WHERE users.id = '.$_SESSION['id']);
 
 						while ($data = $req->fetch())
 						{
-							$i=0;
-							$tot=0;
-							$avg=0;
 							?>
-
 							<tr> 
-							<td><?php echo $data['lesson_name']; ?></td>
-							<td></td>
-							<td></td>
-							<?php
-
-							$lesson_avg = lesson_avg_calculator($data['lesson_name'],$_SESSION["id"]);
-
-							echo "<td>".$lesson_avg[0]."</td>";
-							echo "<td>".$lesson_avg[1]."</td></tr>";
+								<td><i class="fa fa-plus-circle"></i></td>
+								<td><?php echo $data['lesson_name']; ?></td>
+								<td><?php $note = $pdo->query('SELECT AVG(mark) FROM marks, lessons, exams WHERE marks.exam_id = exams.id AND exams.lesson_id = lessons.id'); 
+								while ($taux = $note->fetch()) { echo $taux[0]; } ?></td>
+								<td><?php echo $data['lesson_coefficient']; ?></td>
+							 </tr>
+							 <?php
 						}
 
 						$req->closeCursor();
@@ -190,8 +181,12 @@
 
         <div class="row center-block">
 			<div>
+<<<<<<< HEAD
+				<table class="table table-striped table-hover">
+=======
 				<table class="table table-striped table-hover" id="bulletin">
 					<caption>Tableau des notes</caption>
+>>>>>>> origin/master
 					<thead>
 						<tr>
 						  <th>UE</th>
