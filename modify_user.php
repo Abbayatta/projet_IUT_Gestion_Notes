@@ -230,7 +230,7 @@ else if ($_SESSION["rank"]==1)
 				
 				<?php
 
-					if (isset($_POST["passwd"])) 
+					if (isset($_POST["passwd"]) && $_POST["passwd"] != "") 
 					{
 
 						$req = $pdo->prepare('INSERT INTO users(phone, passwd, mail) VALUES(:phone, :passwd, :mail)');
