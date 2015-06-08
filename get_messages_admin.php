@@ -22,7 +22,7 @@
                     <li><a href="ue.php"><i class="fa fa-briefcase"></i> UE</a></li>
                     <li><a href="lessons.php"><i class="fa fa-flask"></i> Matières</a></li>
                     <li><a href="exams.php"><i class="fa fa-bar-chart-o"></i> Evaluations</a></li>
-                    <li><a href="marks.php"><i class="fa fa-trophy"></i> Notes</a></li>  				
+                    <li><a href="notes.php"><i class="fa fa-trophy"></i> Notes</a></li>  				
                 </ul>
                  <ul class="nav navbar-nav navbar-right navbar-user">
                     <li class="dropdown messages-dropdown">

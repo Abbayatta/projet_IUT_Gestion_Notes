@@ -241,7 +241,7 @@ else if ($_SESSION["rank"]==1)
 <body>
 
     <div id="wrapper">
-        <?php include("nav.php"); include ("get_profil.php")?>
+        <?php include("nav.php"); include ("get_profil.php"); ?>
 	
 		<div>
 			<div class="row text-center">

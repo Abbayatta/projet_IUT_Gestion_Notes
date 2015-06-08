@@ -47,11 +47,13 @@
 	function get_all_exams_list()
 	{
 		include("pdo.php");
-		$req=$pdo->query('SELECT id,title,date FROM exams ORDER BY title');
-
+		include("get_groups.php");
+		$req=$pdo->query('SELECT id,title,group_id, DATE_FORMAT(date,\'%d/%m/%Y à %h:%i\') as dateDuJour FROM exams ORDER BY dateDuJour');
+		
 		while ($data=$req->fetch()) 
 			{
-				echo '<option value="'.$data["id"].'">'.$data["title"].' du '.$data["date"].'</option>';
+				$group_name=get_group($data["group_id"]);
+				echo '<option value="'.$data["id"].'">'.$data["title"].' du '.$data["dateDuJour"].' pour le groupe '.$group_name.'</option>';
 			}
 	}
 	

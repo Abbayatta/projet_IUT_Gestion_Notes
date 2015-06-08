@@ -18,7 +18,8 @@
                 <ul class="nav navbar-nav side-nav">
                     <li><a href="users.php"><i class="fa fa-user"></i> Élèves</a></li>
 					<li><a href="lessons.php"><i class="fa fa-flask"></i> Cours</a></li>
-                    <li><a href="exams.php"><i class="fa fa-bar-chart-o"></i> Evaluations</a></li>				
+                    <li><a href="exams.php"><i class="fa fa-bar-chart-o"></i> Evaluations</a></li>
+                    <li><a href="notes.php"><i class="fa fa-trophy"></i> Notes</a></li>				
                 </ul>
                  <ul class="nav navbar-nav navbar-right navbar-user">
                     <li class="dropdown messages-dropdown">

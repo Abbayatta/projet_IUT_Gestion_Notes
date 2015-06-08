@@ -20,7 +20,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liste des notes</title>
+    <title>Ajout de notes</title>
 
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
@@ -52,9 +52,9 @@
 					<h2>Veuillez choisir une évaluation</h2>
 				</div>
 				<div class="row center-block">
-				<br>
+
 				<form action="" method="GET">
-                <div class="col-lg-7">
+                <div class="col-lg-3">
                     <div class="input-group">
                       <span class="input-group-addon" id="basic-addon1">Evaluation :</span>
                         <select name="controle" id="controle" class="form-control" required>
@@ -84,8 +84,7 @@
 					<thead>
 						<tr>	
 							<th>Elève</th>
-							<th>Résultat</th>
-							<th>Supprimer</th>
+							<th>Note</th>
 						</tr>
 					</thead>
 			 
@@ -93,12 +92,11 @@
 						<tr>
 							<th>Elève</th>
 							<th>Résultat</th>
-							<th>Supprimer</th>
 						</tr>
 					</tfoot>
 			 
 					<tbody>
-					<?php get_marks_exam($controle); ?>
+					<?php add_marks_exam($controle); ?>
 					</tbody>
 				</table>
             </div>
@@ -169,7 +167,7 @@ else if($_SESSION['rank']==2)
 				<div class="row center-block">
 
 				<form action="" method="GET">
-                <div class="col-lg-7">
+                <div class="col-lg-3">
                     <div class="input-group">
                       <span class="input-group-addon" id="basic-addon1">Evaluation :</span>
                         <select name="controle" id="controle" class="form-control" required>
@@ -199,30 +197,26 @@ else if($_SESSION['rank']==2)
 					<thead>
 						<tr>	
 							<th>Elève</th>
-							<th>Résultat</th>
-							<th>Supprimer</th>
+							<th>Note</th>
+							<th>Valider</th>
 						</tr>
 					</thead>
 			 
 					<tfoot>
 						<tr>
 							<th>Elève</th>
-							<th>Résultat</th>
-							<th>Supprimer</th>
+							<th>Note</th>
+							<th>Valider</th>
 						</tr>
 					</tfoot>
 			 
 					<tbody>
-					<?php get_marks_exam($controle); ?>
+					<?php add_marks_exam($controle); ?>
 					</tbody>
 				</table>
             </div>
         </div>
-        <div class="row center-block">
-            <div class="col-lg-6 text-left">
-                <h4><a href="add_notes.php?controle=<?php echo $controle; ?>"><i class="fa fa-plus"></i> Nouvelles notes</a></h4>
-            </div>
-        </div>
+
         <?php } ?>
 
     </div>
