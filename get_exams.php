@@ -5,13 +5,13 @@
 		include("pdo.php");
 		include("get_users.php");
 		include("get_groups.php");
-		$req=$pdo->query('SELECT * FROM exams');
+		$req=$pdo->query('SELECT *, DATE_FORMAT(date, \'%d/%m/%Y\') AS prettyDate FROM exams');
 
 		while ($data=$req->fetch()) 
 		{
 			echo '<tr>';
 			echo '<td>'.$data["title"].'</td>';
-			echo '<td>'.$data["date"].'</td>';
+			echo '<td>'.$data["prettyDate"].'</td>';
 			echo '<td>'.$data["begins"].'</td>';
 			echo '<td>'.$data["ends"].'</td>';
 			echo '<td>'.get_user($data["user_id"]).'</td>';

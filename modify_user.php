@@ -36,7 +36,7 @@
 <body>
 
     <div id="wrapper">
-        <?php include("nav.php"); include ("get_profil.php")?>
+        <?php include("nav.php"); include ("get_profil.php");?>
 	
 		<div>
 			<div class="row text-center">
@@ -47,7 +47,7 @@
 					if (isset($_POST["login"])) 
 					{
 
-						$req = $pdo->prepare('INSERT INTO users(name, login, phone, passwd, mail, group_id, rank) VALUES(:name, :login, :phone, :passwd, :mail, :group_id, :rank)');
+						$req = $pdo->prepare('UPDATE users SET name=:name, login=:login, phone=:phone, passwd=:passwd, mail=:mail, group_id=:group_id, rank=:rank WHERE id='.$_POST["id"]);
 						$req->execute(array(
 						'name' => $_POST["name"],
 						'login' => $_POST["login"],
@@ -69,11 +69,12 @@
 			</div>
 			<form class="form-signin" method="post" action="">
 			<div>
+				<?php echo '<input type="hidden" name="id" value="'.$_POST["id"].'">'; ?>
 				<label for="login" class="col-md-2">
 					Login :
 				</label>
 				<div class="col-md-9">
-					<input type="text" class="form-control" id="login" name="login" value=<?php echo (get_profil_element($_POST["id"], "login"))?> required>
+					<input type="text" class="form-control" id="login" name="login" value="<?php echo (get_profil_element($_POST["id"], "login"))?>" required>
 				</div>
 				<div class="col-md-1">
 					<i class="fa fa-lock fa-2x"></i>
@@ -84,7 +85,7 @@
 					Prénom NOM :
 				</label>
 				<div class="col-md-9">
-					<input type="text" class="form-control" id="name" name="name" value=<?php echo (get_profil_element($_POST["id"], "name"))?> required>
+					<input type="text" class="form-control" id="name" name="name" value="<?php echo (get_profil_element($_POST["id"], "name"))?>" required>
 				</div>
 				 <div class="col-md-1">
 					<i class="fa fa-lock fa-2x"></i>
@@ -95,7 +96,7 @@
 					Adresse mail :
 				</label>
 				<div class="col-md-9">
-					<input type="email" class="form-control" id="email" name="email" value=<?php echo (get_profil_element($_POST["id"], "mail"))?> required>
+					<input type="email" class="form-control" id="email" name="email" value="<?php echo (get_profil_element($_POST["id"], "mail"))?>" required>
 				</div>
 				 <div class="col-md-1">
 					<i class="fa fa-lock fa-2x"></i>
@@ -106,7 +107,7 @@
 					Téléphone :
 				</label>
 				<div class="col-md-9">
-					<input type="text" class="form-control" id="phone" name="phone" value=<?php echo (get_profil_element($_POST["id"], "phone"))?>>
+					<input type="text" class="form-control" id="phone" name="phone" value="<?php echo (get_profil_element($_POST["id"], "phone"))?>">
 				</div>
 			</div>
 			<div>
@@ -125,10 +126,28 @@
 					Fonction:
 				</label>
 				<div class="col-md-9">
-					<select id="rank" name="rank" class="form-control"> <!--fonction php à faire-->
-						<option value="0">Elève</option>
-						<option value="1">Professeur</option>
-						<option value="2">Administrateur</option>
+					<select id="rank" name="rank" class="form-control">
+					<?php
+						$rank=$pdo->query('SELECT rank FROM users WHERE id='.$_POST["id"]);
+						$rank2=$rank->fetch();
+						if ($rank2[0]==0) {				
+								echo '<option value="0">Elève</option>
+									<option value="1">Professeur</option>
+									<option value="2">Administrateur</option>';
+						}
+							
+						else if ($rank2[0]==1){
+								echo '<option value="0">Elève</option>
+									<option value="1" selected>Professeur</option>
+									<option value="2">Administrateur</option>';
+						}
+						
+						else if ($rank2[0]==2){
+								echo '<option value="0">Elève</option>
+									<option value="1">Professeur</option>
+									<option value="2" selected>Administrateur</option>';
+						}
+					?>
 					</select>
 				</div>          
 			</div>
@@ -137,8 +156,8 @@
 					Groupe :
 				</label>
 				<div class="col-md-9">
-					<select name="group" id="group" class="form-control"> <!--fonction php à faire-->
-						<?php get_groups_list(); ?>
+					<select name="group" id="group" class="form-control">
+						<?php get_groups_list_user($_POST["id"]); ?>
 					</select>
 				</div>
 				<div class="col-md-1">

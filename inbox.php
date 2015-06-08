@@ -33,9 +33,9 @@
                     <table id="example" class="display" cellspacing="0" width="100%">
                         <thead>
                             <tr>    
+                                <th>Date</th>
                                 <th>Sujet</th>
                                 <th>Auteur</th>
-                                <th>Date</th>
                                 <th>Etat</th>
                                 <th>Supprimer</th>
                             </tr>
@@ -43,9 +43,9 @@
                  
                         <tfoot>
                             <tr>
+                                <th>Date</th>
                                 <th>Sujet</th>
                                 <th>Auteur</th>
-                                <th>Date</th>
                                 <th>Etat</th>
                                 <th>Supprimer</th>
                             </tr>

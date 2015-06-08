@@ -79,4 +79,23 @@
 				echo '<option value="'.$data["id"].'">'.$data["group_name"].'</option>';
 			}
 	}
+	
+	function get_groups_list_user($user_id)
+	{
+		include("pdo.php");
+		$group_id=$pdo->query('SELECT group_id FROM users WHERE id='.$user_id);
+		$group_id2=$group_id->fetch();
+		
+		$req=$pdo->query('SELECT id,group_name FROM groups');
+
+		while ($data=$req->fetch()) 
+			{	if ($data["id"]==$group_id2[0]) {				
+					echo '<option value="'.$data["id"].'" selected>'.$data["group_name"].'</option>';
+				}
+				
+				else {
+					echo '<option value="'.$data["id"].'">'.$data["group_name"].'</option>';
+				}
+			}
+	}
 ?>
